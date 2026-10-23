@@ -1,0 +1,196 @@
+@import 'tailwindcss';
+
+/* Tema automático pelo sistema (prefers-color-scheme). */
+@custom-variant dark (@media (prefers-color-scheme: dark));
+
+/*
+ * Duas identidades visuais ("Quanto Deu"), escolhidas em Ajustes e aplicadas via
+ * <html data-brand="geometrico|ludico">. Cada uma tem valores próprios de claro e escuro.
+ * Contrastes de texto calculados para AA; pares de séries validados para daltonismo.
+ */
+
+/* ---------- 02 Geométrico (padrão): Petróleo, Coral, Grafite, Areia · Manrope ---------- */
+:root,
+[data-brand="geometrico"] {
+  --bg: #f5efe3;
+  --surface: #fffcf6;
+  --surface-2: #ede5d5;
+  --fg: #1f2a29;
+  --muted: #5e6b68;
+  --separator: rgb(31 42 41 / 0.14);
+  --accent: #0f4c4a;
+  --accent-fg: #ffffff;
+  --fab: #e2643f;
+  --fab-fg: #ffffff;
+  --income: #1f7a35;
+  --expense: #b84a2b;
+  --danger: #b83a26;
+  --warning: #e2a23f;
+  --warning-fg: #8a4b00;
+  --overlay: rgb(31 42 41 / 0.45);
+  --series-income: #0a8f84;
+  --series-expense: #e2643f;
+  --brand-ink: #0f4c4a;
+  --brand-mark: #0f4c4a;
+  --brand-mark-2: #e2643f;
+  --brand-font: "Manrope", system-ui, -apple-system, sans-serif;
+  --brand-weight: 800;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root,
+  [data-brand="geometrico"] {
+    --bg: #111918;
+    --surface: #1f2a29;
+    --surface-2: #2a3735;
+    --fg: #f5efe3;
+    --muted: #a3aeab;
+    --separator: rgb(245 239 227 / 0.14);
+    --accent: #4fb3a9;
+    --accent-fg: #111918;
+    --fab: #e2643f;
+    --fab-fg: #ffffff;
+    --income: #5cc98f;
+    --expense: #f07a55;
+    --danger: #e5574a;
+    --warning: #e2a23f;
+    --warning-fg: #f2c070;
+    --overlay: rgb(0 0 0 / 0.6);
+    --series-income: #0aa596;
+    --series-expense: #e0663f;
+    --brand-ink: #f5efe3;
+    --brand-mark: #f5efe3;
+    --brand-mark-2: #e2643f;
+  }
+}
+
+/* ---------- 03 Lúdico: Tinta, Lilás, Chumbo, Gelo · Space Grotesk ---------- */
+[data-brand="ludico"] {
+  --bg: #f3f3f6;
+  --surface: #ffffff;
+  --surface-2: #e9e9ef;
+  --fg: #141418;
+  --muted: #6a6a76;
+  --separator: rgb(20 20 24 / 0.12);
+  --accent: #5b48d9;
+  --accent-fg: #ffffff;
+  --fab: #141418;
+  --fab-fg: #ffffff;
+  --income: #1f7a35;
+  --expense: #d70015;
+  --danger: #d70015;
+  --warning: #ff9500;
+  --warning-fg: #8a4b00;
+  --overlay: rgb(20 20 24 / 0.45);
+  --series-income: #7a68f0;
+  --series-expense: #eb6834;
+  --brand-ink: #141418;
+  --brand-mark: #141418;
+  --brand-mark-2: #7a68f0;
+  --brand-font: "Space Grotesk", system-ui, -apple-system, sans-serif;
+  --brand-weight: 700;
+}
+
+@media (prefers-color-scheme: dark) {
+  [data-brand="ludico"] {
+    --bg: #141418;
+    --surface: #1f1f26;
+    --surface-2: #2a2a33;
+    --fg: #f3f3f6;
+    --muted: #a2a2ae;
+    --separator: rgb(243 243 246 / 0.12);
+    --accent: #9b8cf7;
+    --accent-fg: #141418;
+    --fab: #7a68f0;
+    --fab-fg: #ffffff;
+    --income: #30d158;
+    --expense: #ff6b6b;
+    --danger: #e5484d;
+    --warning: #ff9f0a;
+    --warning-fg: #ffb340;
+    --overlay: rgb(0 0 0 / 0.6);
+    --series-income: #8f80f5;
+    --series-expense: #d95926;
+    --brand-ink: #f3f3f6;
+    --brand-mark: #f3f3f6;
+    --brand-mark-2: #9b8cf7;
+  }
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-fg: var(--fg);
+  --color-muted: var(--muted);
+  --color-separator: var(--separator);
+  --color-accent: var(--accent);
+  --color-accent-fg: var(--accent-fg);
+  --color-fab: var(--fab);
+  --color-fab-fg: var(--fab-fg);
+  --color-income: var(--income);
+  --color-expense: var(--expense);
+  --color-danger: var(--danger);
+  --color-warning: var(--warning);
+  --color-warning-fg: var(--warning-fg);
+  --color-overlay: var(--overlay);
+  --color-series-income: var(--series-income);
+  --color-series-expense: var(--series-expense);
+  --color-brand-ink: var(--brand-ink);
+  --font-sans: system-ui, -apple-system, "SF Pro Text", "Segoe UI", Roboto, sans-serif;
+  --font-display: var(--brand-font);
+}
+
+/* Safe areas (Dynamic Island / home indicator). */
+@utility pt-safe {
+  padding-top: env(safe-area-inset-top);
+}
+@utility pb-safe {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+@utility px-safe {
+  padding-left: max(1rem, env(safe-area-inset-left));
+  padding-right: max(1rem, env(safe-area-inset-right));
+}
+@utility tap {
+  min-height: 44px;
+  min-width: 44px;
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+    color-scheme: light dark;
+  }
+  body {
+    @apply bg-bg text-fg font-sans antialiased;
+    overscroll-behavior-y: none;
+  }
+  /* Fonte ≥ 16px evita o zoom automático do iOS ao focar. */
+  input,
+  select,
+  textarea {
+    font-size: 16px;
+  }
+  .tabular {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+/* Piscadinha do símbolo lúdico */
+@keyframes wink {
+  0%, 88%, 100% { transform: scaleY(1); }
+  92% { transform: scaleY(0.25); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
