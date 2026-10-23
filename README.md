@@ -117,7 +117,7 @@ A função cria o app Nest **uma vez por container** e reaproveita o app e a con
 
 ### Frontend
 
-1. Edite [`frontend/vercel.json`](frontend/vercel.json) e troque `SEU-BACKEND` pela URL do backend.
+1. Edite [`frontend/vercel.json`](frontend/vercel.json) e troque a URL do backend se ela mudar (hoje: `spent-money-backend.vercel.app`).
 2. *Add New Project* → mesmo repositório → **Root Directory: `frontend`** → Framework **Vite**.
 3. Não defina `VITE_API_URL`.
 4. Deploy e abra a URL no Safari do iPhone → **Compartilhar → Adicionar à Tela de Início**.
